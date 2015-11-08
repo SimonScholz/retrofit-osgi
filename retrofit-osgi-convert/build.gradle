@@ -1,0 +1,39 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'org.standardout:bnd-platform:1.2.0'
+	}
+}
+
+apply plugin: 'org.standardout.bnd-platform'
+
+repositories {
+	mavenCentral()
+}
+
+platform {
+
+	// Convert the retrofit artifact to OSGi, make android.os optional and handle the split package problems in OSGi
+	bundle('com.squareup.retrofit:retrofit:2.0.0-beta2'){
+		bnd {
+			optionalImport 'android.os'
+			instruction 'Export-Package', 'retrofit;com.squareup.retrofit=split;mandatory:=com.squareup.retrofit, retrofit.http'
+	    	}
+	}
+
+	// Convert the retrofit gson converter artifact to OSGi and handle the split package problems in OSGi
+	bundle('com.squareup.retrofit:converter-gson:2.0.0-beta2') {
+		bnd{
+			instruction 'Require-Bundle', 'com.squareup.retrofit'
+			instruction 'Export-Package', 'retrofit;com.squareup.retrofit.converter-gson=split;mandatory:=com.squareup.retrofit.converter-gson'
+		}
+	}
+
+	// You can add other converters similar to the gson converter above...
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.8'
+}
