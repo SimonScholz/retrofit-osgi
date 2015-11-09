@@ -16,3 +16,5 @@ So the retrofit-osgi bundle, which combines the com.squareup.retrofit and com.sq
 # Starting the sample application
 
 In the retrofit-osgi-target project is a target file, where the proper target platform for the sample project can be set. After this is done the de.simonscholz.retrofit.app.product file in the de.simonscholz.retrofit.product project can be used to start the application, which loads the list of contributors of the platform.ui project.
+
+![Image of the Retrofit Eclipse 4 Sample Application](https://cloud.githubusercontent.com/assets/7559962/11023612/75250c22-867e-11e5-8bc0-0dda1682d740.png)
