@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmi:id="_c3AF0MjYEeSyMNYR5xypkQ" elementId="org.eclipse.e4.application" bindingContexts="_c3AF2cjYEeSyMNYR5xypkQ">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_c3AF0cjYEeSyMNYR5xypkQ" elementId="org.eclipse.e4.window.main" label="Retrofit Sample Application" iconURI="platform:/plugin/de.simonscholz.retrofit.app/icons/sample.png" width="500" height="400">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_c3AF0cjYEeSyMNYR5xypkQ" elementId="org.eclipse.e4.window.main" label="Retrofit Eclipse 4 Sample Application" iconURI="platform:/plugin/de.simonscholz.retrofit.app/icons/sample.png" width="500" height="400">
     <children xsi:type="basic:PartStack" xmi:id="_WAop0IZoEeWvg46UkDQb6w" elementId="de.simonscholz.retrofit.app.partstack.0">
       <children xsi:type="basic:Part" xmi:id="_wr7bAIZYEeWvg46UkDQb6w" elementId="de.simonscholz.retrofit.app.part" contributionURI="bundleclass://de.simonscholz.retrofit.app/de.simonscholz.retrofit.app.part.RetrofitSamplePart" label="Eclipse Contributors" iconURI="platform:/plugin/de.simonscholz.retrofit.app/icons/sample.png"/>
     </children>
