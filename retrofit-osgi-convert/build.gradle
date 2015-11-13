@@ -10,13 +10,24 @@ buildscript {
 apply plugin: 'org.standardout.bnd-platform'
 
 repositories {
+	// mavenLocal()
 	mavenCentral()
 }
 
 platform {
 
+	// Uncomment with proper path to your eclipse installation (necessary for building a p2 updatesite)
+	// eclipseHome = new File('/home/simon/eclipse/eclipse_luna_modeling')
+
+	// configure proper names for the p2 update site
+	categoryId = 'retrofit'
+	categoryName = 'retrofit'
+
+	featureId = 'retrofit'
+	featureName = 'retrofit osgi'
+
 	// Convert the retrofit artifact to OSGi, make android.os optional and handle the split package problems in OSGi
-	bundle('com.squareup.retrofit:retrofit:2.0.0-beta2'){
+	bundle('com.squareup.retrofit:retrofit-simon:2.0.0-SNAPSHOT'){
 		bnd {
 			optionalImport 'android.os'
 			instruction 'Export-Package', 'retrofit;com.squareup.retrofit=split;mandatory:=com.squareup.retrofit, retrofit.http'
@@ -24,9 +35,9 @@ platform {
 	}
 
 	// Convert the retrofit gson converter artifact to OSGi and handle the split package problems in OSGi
-	bundle('com.squareup.retrofit:converter-gson:2.0.0-beta2') {
+	bundle('com.squareup.retrofit:converter-simon-gson:2.0.0-SNAPSHOT') {
 		bnd{
-			instruction 'Require-Bundle', 'com.squareup.retrofit'
+			instruction 'Require-Bundle', 'com.squareup.retrofit.simon'
 			instruction 'Export-Package', 'retrofit;com.squareup.retrofit.converter-gson=split;mandatory:=com.squareup.retrofit.converter-gson'
 		}
 	}
