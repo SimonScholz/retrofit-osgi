@@ -1,6 +1,14 @@
 # retrofit-osgi
 This repository provides a conversion gradle build for retrofit to osgi and a sample Eclipse plug-ins to use it.
 
+# Getting retrofit from a p2 update site
+The retrofit and its gson converter bundles can be obtained from the following p2 update site:
+
+https://dl.bintray.com/simon-scholz/retrofit-osgi/
+
+This p2 update site can also be referenced by a target definition.
+See also https://github.com/SimonScholz/retrofit-osgi/blob/master/retrofit-osgi-target/retrofit-osgi.target
+
 # Convert desired retrofit artifacts to osgi
 
 The retrofit-osgi-convert folder contains a build.gradle build file, which makes use of the org.standardout:bnd-platform:1.2.0 Gradle plugin to download all Retrofit + Retrofit GSON converter dependencies and converts these to OSGi bundles.
