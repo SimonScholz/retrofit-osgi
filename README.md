@@ -1,5 +1,5 @@
 # retrofit-osgi
-This repository provides a conversion gradle build for retrofit to osgi and a sample Eclipse plug-ins to use it.
+This repository provides a gradle build script for the conversion of retrofit to osgi and a sample Eclipse plug-in, which makes use of it.
 
 # Getting retrofit from a p2 update site
 The retrofit and its gson converter bundles can be obtained from the following p2 update site:
