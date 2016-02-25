@@ -10,14 +10,13 @@ buildscript {
 apply plugin: 'org.standardout.bnd-platform'
 
 repositories {
-	// mavenLocal()
 	jcenter()
 }
 
 platform {
 
 	// Uncomment with proper path to your eclipse installation (necessary for building a p2 updatesite)
-	// eclipseHome = new File('/home/simon/eclipse/eclipse_baseline')
+	eclipseHome = new File('/home/simon/eclipse/eclipse_baseline')
 
 	// configure proper names for the p2 update site
 	categoryId = 'retrofit'
@@ -27,18 +26,26 @@ platform {
 	featureName = 'retrofit osgi'
 
 	// Convert the retrofit artifact to OSGi, make android.os optional and handle the split package problems in OSGi
-	bundle('com.squareup.retrofit:retrofit:2.0.0-beta4'){
+	bundle('com.squareup.retrofit2:retrofit:2.0.0-beta4'){
 		bnd {
 			optionalImport 'android.os'
-			instruction 'Export-Package', 'retrofit;com.squareup.retrofit=split;mandatory:=com.squareup.retrofit, retrofit.http'
+			optionalImport 'android.net'
+			instruction 'Export-Package', 'retrofit2;com.squareup.retrofit2.retrofit=split;mandatory:=com.squareup.retrofit2.retrofit, retrofit2.http'
 	    	}
 	}
 
 	// Convert the retrofit gson converter artifact to OSGi and handle the split package problems in OSGi
-	bundle('com.squareup.retrofit:converter-gson:2.0.0-beta4') {
+	bundle('com.squareup.retrofit2:converter-gson:2.0.0-beta4') {
 		bnd{
-			instruction 'Require-Bundle', 'com.squareup.retrofit'
-			instruction 'Export-Package', 'retrofit;com.squareup.retrofit.converter-gson=split;mandatory:=com.squareup.retrofit.converter-gson'
+			instruction 'Require-Bundle', 'com.squareup.retrofit2.retrofit'
+			instruction 'Export-Package', 'retrofit2;com.squareup.retrofit2.converter-gson=split;mandatory:=com.squareup.retrofit2.converter-gson, retrofit2.converter.gson'
+		}
+	}
+
+	// Convert okhttp3 artifact to OSGi without android
+	bundle('com.squareup.okhttp3:okhttp:3.1.2') {
+		bnd{
+			optionalImport 'android.util'
 		}
 	}
 
