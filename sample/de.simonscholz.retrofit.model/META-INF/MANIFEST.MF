@@ -4,7 +4,6 @@ Bundle-Name: Retrofit Sample Model
 Bundle-SymbolicName: de.simonscholz.retrofit.model
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Require-Bundle: retrofit-osgi;bundle-version="2.0.0"
-Import-Package: retrofit.http
 Export-Package: de.simonscholz.retrofit.model
 Bundle-Vendor: SIMON_SCHOLZ
+Require-Bundle: com.squareup.retrofit2.retrofit;bundle-version="2.0.0"

@@ -108,8 +108,8 @@
       <feature id="org.eclipse.e4.rcp"/>
       <feature id="org.eclipse.emf.ecore"/>
       <feature id="org.eclipse.emf.common"/>
-      <feature id="retrofit.osgi.feature"/>
-      <feature id="de.simonscholz.retrofit.feature"/>
+      <feature id="de.simonscholz.retrofit.feature" version="2.0.0.qualifier"/>
+      <feature id="retrofit" version="1.0.0.bnd-3iauSA"/>
    </features>
 
 

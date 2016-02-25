@@ -12,9 +12,9 @@ import org.eclipse.e4.ui.di.UISynchronize;
 
 import de.simonscholz.retrofit.model.Contributor;
 import de.simonscholz.retrofit.model.GitHub;
-import retrofit.Call;
-import retrofit.GsonConverterFactory;
-import retrofit.Retrofit;
+import retrofit2.Call;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 
