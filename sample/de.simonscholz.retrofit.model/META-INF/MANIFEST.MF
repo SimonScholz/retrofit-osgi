@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Retrofit Sample Model
 Bundle-SymbolicName: de.simonscholz.retrofit.model
 Bundle-Version: 1.0.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.simonscholz.retrofit.model
 Bundle-Vendor: SIMON_SCHOLZ
 Require-Bundle: com.squareup.retrofit2.retrofit;bundle-version="2.0.0"
