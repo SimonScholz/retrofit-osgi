@@ -15,6 +15,16 @@
 
    <windowImages/>
 
+   <launcher name="retrofit-osgi-app">
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
    <plugins>
       <plugin id="com.ibm.icu"/>
       <plugin id="de.simonscholz.retrofit.app"/>
@@ -109,7 +119,7 @@
       <feature id="org.eclipse.emf.ecore"/>
       <feature id="org.eclipse.emf.common"/>
       <feature id="de.simonscholz.retrofit.feature" version="2.0.0.qualifier"/>
-      <feature id="retrofit" version="1.0.0.bnd-3iauSA"/>
+      <feature id="retrofit" version="2.0.0"/>
    </features>
 
    <configurations>

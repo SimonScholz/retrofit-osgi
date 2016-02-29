@@ -6,11 +6,11 @@
          id="product"
          point="org.eclipse.core.runtime.products">
       <product
-            name="de.simonscholz.retrofit.app"
+            name="Retrofit OSGi App"
             application="org.eclipse.e4.ui.workbench.swt.E4Application">
          <property
                name="appName"
-               value="de.simonscholz.retrofit.app">
+               value="Retrofit OSGi App">
          </property>
       </product>
    </extension>

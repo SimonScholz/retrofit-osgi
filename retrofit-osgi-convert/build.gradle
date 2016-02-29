@@ -16,7 +16,7 @@ repositories {
 platform {
 
 	// Uncomment with proper path to your eclipse installation (necessary for building a p2 updatesite)
-	eclipseHome = new File('/home/simon/eclipse/eclipse_baseline')
+	eclipseHome = new File('/home/simon/eclipse/eclipse-baseline')
 
 	// configure proper names for the p2 update site
 	categoryId = 'retrofit'
@@ -24,6 +24,13 @@ platform {
 
 	featureId = 'retrofit'
 	featureName = 'retrofit osgi'
+	featureVersion = '2.0.0'
+	featureProvider = 'Simon Scholz'
+
+	defaultQualifier = ''
+	useBndHashQualifiers = false
+	useFeatureHashQualifiers = false
+	defaultQualifierMap.prefix = ''
 
 	// Convert the retrofit artifact to OSGi, make android.os optional and handle the split package problems in OSGi
 	bundle('com.squareup.retrofit2:retrofit:2.0.0-beta4'){
