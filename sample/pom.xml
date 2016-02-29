@@ -1,0 +1,177 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>de.simonscholz</groupId>
+	<artifactId>de.simonscholz.osgi.retrofit.parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<packaging>pom</packaging>
+	
+	<!-- tycho pomless >= 3.3 -->
+	<prerequisites>
+		<maven>3.3</maven>
+	</prerequisites>
+	
+	<organization>
+		<name>Simon Scholz</name>
+		<url>http://www.simonscholz.de/</url>
+	</organization>
+	
+	<properties>
+		<tycho.version>0.24.0</tycho.version>
+
+		<product.id>de.simonscholz.retrofit.product</product.id>
+		<application.id>org.eclipse.e4.ui.workbench.swt.E4Application</application.id>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<tycho.test.vm.useUiThread>false</tycho.test.vm.useUiThread>
+	</properties>
+	
+	<modules>
+	
+		<!-- bundles -->
+		<module>de.simonscholz.retrofit.app</module>
+		<module>de.simonscholz.retrofit.model</module>
+		
+		<!-- target -->
+		<module>retrofit-osgi-target</module>
+		
+		<!-- features -->
+		<module>de.simonscholz.retrofit.feature</module>
+		
+		<!-- products -->
+		<module>de.simonscholz.retrofit.product</module>
+		
+	</modules>
+	
+		<build>
+		<plugins>
+			<plugin>
+				<!-- enable tycho build extension -->
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<archive>
+						<addMavenDescriptor>false</addMavenDescriptor>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<!-- recommended: use p2-based target platform resolver -->
+					<resolver>p2</resolver>
+					<ignoreTychoRepositories>true</ignoreTychoRepositories>
+					<!-- use existing target platform definition -->
+					<target>
+						<artifact>
+							<groupId>de.simonscholz</groupId>
+							<artifactId>retrofit-osgi-target</artifactId>
+							<version>1.0.0-SNAPSHOT</version>
+						</artifact>
+					</target>
+					<!-- configure the p2 target environments for multi-platform build -->
+					<environments>
+						<!-- Linux -->
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<!-- Windows -->
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<!-- Mac -->
+						<!-- <environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86</arch>
+						</environment> -->
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+
+			<!-- enable source bundle generation -->
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- enable findbugs checks -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>3.0.3</version>
+				<configuration>
+					<failOnError>false</failOnError>
+					<skip>false</skip>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>3.0.3</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
+</project>
