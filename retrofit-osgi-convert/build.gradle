@@ -33,7 +33,7 @@ platform {
 	defaultQualifierMap.prefix = ''
 
 	// Convert the retrofit artifact to OSGi, make android.os optional and handle the split package problems in OSGi
-	bundle('com.squareup.retrofit2:retrofit:2.0.0-beta4'){
+	bundle('com.squareup.retrofit2:retrofit:2.0.1'){
 		bnd {
 			optionalImport 'android.os'
 			optionalImport 'android.net'
@@ -50,7 +50,7 @@ platform {
 	}
 
 	// Convert okhttp3 artifact to OSGi without android
-	bundle('com.squareup.okhttp3:okhttp:3.1.2') {
+	bundle('com.squareup.okhttp3:okhttp:3.2.0') {
 		bnd{
 			optionalImport 'android.util'
 		}
