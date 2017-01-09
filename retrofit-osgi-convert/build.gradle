@@ -44,6 +44,13 @@ platform {
 	bundle('com.squareup.retrofit2:converter-gson:2.1.0')
 
 	// You can add other converters similar to the gson converter above...
+
+	// Convert okhttp3 artifact to OSGi without android
+	bundle('com.squareup.okhttp3:okhttp:3.3.0') {
+		bnd{
+			optionalImport 'android.util'
+		}
+	}
 }
 
 task wrapper(type: Wrapper) {
